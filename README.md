@@ -1,6 +1,6 @@
-Archivos base para la generación Masiva de papeles de trabajo de IVA e IIBB en SOS-Contador mediante un BOT de UiPath
+Archivos base para la importación masiva de Retenciones y Percepciones a SOS-Contador mediante un BOT de UiPath
 #
-## El licenciamiento es con GPL (es decir que no se puede distribuir comercialmente, solamente GRATIS). y si se utiliza este el código, su derivado también debe ser distribuido abierta y gratuitamente. 
+
 
  Breve descripción de la instalación del BOT
 
@@ -37,7 +37,7 @@ Cualquier cosa pueden contactarme en:
 
 <br/>
 
-## 💰 Acepto donaciones para mantener el proyecto libre y gratuito
+## 💰 Acepto donaciones para mantener los proyectos
 <br/>
 
 [![PayPal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/agustinbustosp) <!-- [<img src="http://ketekipo.com.ar/wp-content/uploads/2020/05/mercado-pago.png" alt="Image" height="30" width="100\">](https://paypal.me/paypal.me/agustinbustosp) -->
