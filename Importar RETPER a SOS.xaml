@@ -3293,7 +3293,7 @@
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:WriteCell Cell="[&quot;R&quot; + row(&quot;Fila&quot;).ToString]" DisplayName="Control Sin Existencia" sap:VirtualizedContainerService.HintSize="334,116" sap2010:WorkflowViewState.IdRef="WriteCell_47" SheetName="Control" Text="No Existen Retenciones" WorkbookPath="Control.xlsx" />
+                          <ui:WriteCell Cell="[&quot;R&quot; + row(&quot;Fila&quot;).ToString]" DisplayName="Control Sin Existencia" sap:VirtualizedContainerService.HintSize="334,116" sap2010:WorkflowViewState.IdRef="WriteCell_47" SheetName="Control" Text="No Existen Percepciones" WorkbookPath="Control.xlsx" />
                         </Sequence>
                       </If.Else>
                     </If>
