@@ -138,13 +138,13 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
             </ActivityAction.Argument>
-            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[Clientes]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="606,37311" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[Clientes]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="606,34281" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
               <ui:ForEachRow.Body>
                 <ActivityAction x:TypeArguments="sd:DataRow">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="sd:DataRow" Name="Row" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Secuencia en Firefox" sap:VirtualizedContainerService.HintSize="572,37194" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                  <Sequence DisplayName="Secuencia en Firefox" sap:VirtualizedContainerService.HintSize="572,34159" sap2010:WorkflowViewState.IdRef="Sequence_26">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:String" Default="[row(&quot;CUIT en pagina&quot;).ToString]" Name="CUIT" />
                       <Variable x:TypeArguments="x:Boolean" Name="RET216" />
@@ -169,7 +169,7 @@
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="510,90" sap2010:WorkflowViewState.IdRef="CreateDirectory_2" Path="[row(&quot;Destino&quot;).ToString]" />
+                    <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="510,80" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[row(&quot;Destino&quot;).ToString]" />
                     <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="click en lista desplegable" sap:VirtualizedContainerService.HintSize="510,107" sap2010:WorkflowViewState.IdRef="Click_35" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                       <ui:Click.CursorPosition>
                         <ui:CursorPosition Position="Center">
@@ -226,7 +226,7 @@
                       <ui:WriteCell Cell="[&quot;C&quot; + row(&quot;Fila&quot;).ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="388,116" sap2010:WorkflowViewState.IdRef="WriteCell_25" SheetName="Control" Text="[row(&quot;Fila&quot;).ToString]" WorkbookPath="Control.xlsx" />
                     </Sequence>
                     <ui:FileExistsX DisplayName="File Exists 216 RET" Exists="[RET216]" sap:VirtualizedContainerService.HintSize="510,133" sap2010:WorkflowViewState.IdRef="FileExistsX_7" Path="[row(&quot;Ubicación&quot;).ToString + row(&quot;RET 216&quot;).ToString]" />
-                    <If Condition="[RET216 = True]" DisplayName="if 216 RET" sap:VirtualizedContainerService.HintSize="510,2551" sap2010:WorkflowViewState.IdRef="If_12">
+                    <If Condition="[RET216 = True]" DisplayName="if 216 RET" sap:VirtualizedContainerService.HintSize="510,2319" sap2010:WorkflowViewState.IdRef="If_12">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -234,7 +234,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <If.Then>
-                        <Sequence sap:VirtualizedContainerService.HintSize="476,2165" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                        <Sequence sap:VirtualizedContainerService.HintSize="476,2137" sap2010:WorkflowViewState.IdRef="Sequence_28">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -404,14 +404,7 @@
                               <InArgument x:TypeArguments="x:Object">[row("Destino").ToString + row("RET 216").ToString]</InArgument>
                             </Assign.Value>
                           </Assign>
-                          <ui:MoveFile ContinueOnError="{x:Null}" Destination="{x:Null}" Path="{x:Null}" DestinationResource="[Destino_Temp]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="434,187" sap2010:WorkflowViewState.IdRef="MoveFile_10" PathResource="[Out_Temp]">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                          </ui:MoveFile>
+                          <ui:MoveFile ContinueOnError="{x:Null}" Destination="[row(&quot;Destino&quot;).ToString + row(&quot;RET 216&quot;).ToString]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="True" Path="[row(&quot;Ubicación&quot;).ToString + row(&quot;RET 216&quot;).ToString]" />
                           <ui:WriteCell Cell="[&quot;D&quot; + row(&quot;Fila&quot;).ToString]" DisplayName="Control OK" sap:VirtualizedContainerService.HintSize="434,116" sap2010:WorkflowViewState.IdRef="WriteCell_26" SheetName="Control" Text="Importado" WorkbookPath="Control.xlsx" />
                         </Sequence>
                       </If.Then>
@@ -427,7 +420,7 @@
                       </If.Else>
                     </If>
                     <ui:FileExistsX DisplayName="File Exists 216 PER" Exists="[PER216]" sap:VirtualizedContainerService.HintSize="510,133" sap2010:WorkflowViewState.IdRef="FileExistsX_13" Path="[row(&quot;Ubicación&quot;).ToString + row(&quot;PER 216&quot;).ToString]" />
-                    <If Condition="[PER216 = True]" DisplayName="If 216 PER" sap:VirtualizedContainerService.HintSize="510,2551" sap2010:WorkflowViewState.IdRef="If_15">
+                    <If Condition="[PER216 = True]" DisplayName="If 216 PER" sap:VirtualizedContainerService.HintSize="510,2075" sap2010:WorkflowViewState.IdRef="If_15">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -435,14 +428,14 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <If.Then>
-                        <Sequence sap:VirtualizedContainerService.HintSize="476,2165" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                        <Sequence sap:VirtualizedContainerService.HintSize="426,1893" sap2010:WorkflowViewState.IdRef="Sequence_41">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:NavigateTo Browser="{x:Null}" DisplayName="Mis Retenciones" sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="NavigateTo_13" Url="https://nuevo.soft.sos-contador.com/web/importacion_arbaretenciones.asp?fuente=MISRETE" />
-                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Año completo" sap:VirtualizedContainerService.HintSize="434,107" sap2010:WorkflowViewState.IdRef="Click_68" KeyModifiers="None" MouseButton="BTN_LEFT">
+                          <ui:NavigateTo Browser="{x:Null}" DisplayName="Mis Retenciones" sap:VirtualizedContainerService.HintSize="384,60" sap2010:WorkflowViewState.IdRef="NavigateTo_13" Url="https://nuevo.soft.sos-contador.com/web/importacion_arbaretenciones.asp?fuente=MISRETE" />
+                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Año completo" sap:VirtualizedContainerService.HintSize="384,107" sap2010:WorkflowViewState.IdRef="Click_68" KeyModifiers="None" MouseButton="BTN_LEFT">
                             <ui:Click.CursorPosition>
                               <ui:CursorPosition Position="Center">
                                 <ui:CursorPosition.OffsetX>
@@ -464,7 +457,7 @@
                               </ui:Target>
                             </ui:Click.Target>
                           </ui:Click>
-                          <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Año" sap:VirtualizedContainerService.HintSize="434,135" sap2010:WorkflowViewState.IdRef="TypeInto_38" Text="[string.Format(&quot;{0:yyyy}&quot; , row(&quot;Desde&quot;))]">
+                          <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Año" sap:VirtualizedContainerService.HintSize="384,135" sap2010:WorkflowViewState.IdRef="TypeInto_38" Text="[string.Format(&quot;{0:yyyy}&quot; , row(&quot;Desde&quot;))]">
                             <ui:TypeInto.Target>
                               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="abcd94f9-208b-40ea-afc3-87dba7a212ba" InformativeScreenshot="5cec79c13bb01cdc07539b96b0bfe35f" Selector="&lt;webctrl id='anio' tag='INPUT' type='text' /&gt;">
                                 <ui:Target.TimeoutMS>
@@ -476,7 +469,7 @@
                               </ui:Target>
                             </ui:TypeInto.Target>
                           </ui:TypeInto>
-                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Subir TXT" sap:VirtualizedContainerService.HintSize="434,107" sap2010:WorkflowViewState.IdRef="Click_69" KeyModifiers="None" MouseButton="BTN_LEFT">
+                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Subir TXT" sap:VirtualizedContainerService.HintSize="384,107" sap2010:WorkflowViewState.IdRef="Click_69" KeyModifiers="None" MouseButton="BTN_LEFT">
                             <ui:Click.CursorPosition>
                               <ui:CursorPosition Position="Center">
                                 <ui:CursorPosition.OffsetX>
@@ -498,7 +491,7 @@
                               </ui:Target>
                             </ui:Click.Target>
                           </ui:Click>
-                          <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Cargar nombre de archivo" sap:VirtualizedContainerService.HintSize="434,135" sap2010:WorkflowViewState.IdRef="TypeInto_39" Text="[row(&quot;Ubicación&quot;).ToString + row(&quot;PER 216&quot;).ToString]">
+                          <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Cargar nombre de archivo" sap:VirtualizedContainerService.HintSize="384,135" sap2010:WorkflowViewState.IdRef="TypeInto_39" Text="[row(&quot;Ubicación&quot;).ToString + row(&quot;PER 216&quot;).ToString]">
                             <ui:TypeInto.Target>
                               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ab746740-3386-4526-9e1d-ffa549a8f2c2" InformativeScreenshot="35ea084369c4590c9e826133b1509745" Selector="&lt;wnd app='firefox.exe' cls='#32770' title='Subir archivo' /&gt;&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;">
                                 <ui:Target.TimeoutMS>
@@ -510,7 +503,7 @@
                               </ui:Target>
                             </ui:TypeInto.Target>
                           </ui:TypeInto>
-                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Abrir" sap:VirtualizedContainerService.HintSize="434,107" sap2010:WorkflowViewState.IdRef="Click_70" KeyModifiers="None" MouseButton="BTN_LEFT">
+                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Abrir" sap:VirtualizedContainerService.HintSize="384,107" sap2010:WorkflowViewState.IdRef="Click_70" KeyModifiers="None" MouseButton="BTN_LEFT">
                             <ui:Click.CursorPosition>
                               <ui:CursorPosition Position="Center">
                                 <ui:CursorPosition.OffsetX>
@@ -532,8 +525,8 @@
                               </ui:Target>
                             </ui:Click.Target>
                           </ui:Click>
-                          <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="434,90" sap2010:WorkflowViewState.IdRef="Delay_13" />
-                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Importar" sap:VirtualizedContainerService.HintSize="434,107" sap2010:WorkflowViewState.IdRef="Click_71" KeyModifiers="None" MouseButton="BTN_LEFT">
+                          <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="384,90" sap2010:WorkflowViewState.IdRef="Delay_13" />
+                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Importar" sap:VirtualizedContainerService.HintSize="384,107" sap2010:WorkflowViewState.IdRef="Click_71" KeyModifiers="None" MouseButton="BTN_LEFT">
                             <ui:Click.CursorPosition>
                               <ui:CursorPosition Position="Center">
                                 <ui:CursorPosition.OffsetX>
@@ -555,7 +548,7 @@
                               </ui:Target>
                             </ui:Click.Target>
                           </ui:Click>
-                          <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Nombre de Informe" sap:VirtualizedContainerService.HintSize="434,135" sap2010:WorkflowViewState.IdRef="TypeInto_40" SimulateType="True" Text="[row(&quot;Destino&quot;).ToString+ &quot;Informe - &quot; + row(&quot;PER 216&quot;).ToString]">
+                          <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Nombre de Informe" sap:VirtualizedContainerService.HintSize="384,135" sap2010:WorkflowViewState.IdRef="TypeInto_40" SimulateType="True" Text="[row(&quot;Destino&quot;).ToString+ &quot;Informe - &quot; + row(&quot;PER 216&quot;).ToString]">
                             <ui:TypeInto.Target>
                               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c1100556-b23b-488e-abe1-ba9cc72378f1" InformativeScreenshot="2daabfbe1e5ec5b0d3cb63fc8bf84d44" Selector="&lt;wnd app='firefox.exe' cls='#32770' title='Ingrese nombre de archivo a guardar…' /&gt;&lt;wnd aaname='Panel del explorador' cls='DirectUIHWND' /&gt;&lt;wnd ctrlid='1001' /&gt;">
                                 <ui:Target.TimeoutMS>
@@ -567,7 +560,7 @@
                               </ui:Target>
                             </ui:TypeInto.Target>
                           </ui:TypeInto>
-                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click guardar" sap:VirtualizedContainerService.HintSize="434,107" sap2010:WorkflowViewState.IdRef="Click_72" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click guardar" sap:VirtualizedContainerService.HintSize="384,107" sap2010:WorkflowViewState.IdRef="Click_72" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                             <ui:Click.CursorPosition>
                               <ui:CursorPosition Position="Center">
                                 <ui:CursorPosition.OffsetX>
@@ -589,31 +582,8 @@
                               </ui:Target>
                             </ui:Click.Target>
                           </ui:Click>
-                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_25">
-                            <Assign.To>
-                              <OutArgument x:TypeArguments="x:Object">[Out_Temp]</OutArgument>
-                            </Assign.To>
-                            <Assign.Value>
-                              <InArgument x:TypeArguments="x:Object">[row("Ubicación").ToString + row("PER 216").ToString]</InArgument>
-                            </Assign.Value>
-                          </Assign>
-                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_26">
-                            <Assign.To>
-                              <OutArgument x:TypeArguments="x:Object">[Destino_Temp]</OutArgument>
-                            </Assign.To>
-                            <Assign.Value>
-                              <InArgument x:TypeArguments="x:Object">[row("Destino").ToString + row("PER 216").ToString]</InArgument>
-                            </Assign.Value>
-                          </Assign>
-                          <ui:MoveFile ContinueOnError="{x:Null}" Destination="{x:Null}" Path="{x:Null}" DestinationResource="[Destino_Temp]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="434,187" sap2010:WorkflowViewState.IdRef="MoveFile_13" PathResource="[Out_Temp]">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                          </ui:MoveFile>
-                          <ui:WriteCell Cell="[&quot;G&quot; + row(&quot;Fila&quot;).ToString]" DisplayName="Control OK" sap:VirtualizedContainerService.HintSize="434,116" sap2010:WorkflowViewState.IdRef="WriteCell_38" SheetName="Control" Text="Importado" WorkbookPath="Control.xlsx" />
+                          <ui:MoveFile ContinueOnError="{x:Null}" Destination="[row(&quot;Destino&quot;).ToString + row(&quot;PER 216&quot;).ToString]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="384,159" sap2010:WorkflowViewState.IdRef="MoveFile_2" Overwrite="True" Path="[row(&quot;Ubicación&quot;).ToString + row(&quot;PER 216&quot;).ToString]" />
+                          <ui:WriteCell Cell="[&quot;G&quot; + row(&quot;Fila&quot;).ToString]" DisplayName="Control OK" sap:VirtualizedContainerService.HintSize="384,116" sap2010:WorkflowViewState.IdRef="WriteCell_38" SheetName="Control" Text="Importado" WorkbookPath="Control.xlsx" />
                         </Sequence>
                       </If.Then>
                       <If.Else>
@@ -628,7 +598,7 @@
                       </If.Else>
                     </If>
                     <ui:FileExistsX DisplayName="File Exists 217 RET" Exists="[RET217]" sap:VirtualizedContainerService.HintSize="510,133" sap2010:WorkflowViewState.IdRef="FileExistsX_8" Path="[row(&quot;Ubicación&quot;).ToString + row(&quot;RET 217&quot;).ToString]" />
-                    <If Condition="[RET217 = True]" DisplayName="If 217 RET" sap:VirtualizedContainerService.HintSize="510,2551" sap2010:WorkflowViewState.IdRef="If_13">
+                    <If Condition="[RET217 = True]" DisplayName="If 217 RET" sap:VirtualizedContainerService.HintSize="510,2319" sap2010:WorkflowViewState.IdRef="If_13">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -636,7 +606,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <If.Then>
-                        <Sequence sap:VirtualizedContainerService.HintSize="476,2165" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                        <Sequence sap:VirtualizedContainerService.HintSize="476,2137" sap2010:WorkflowViewState.IdRef="Sequence_30">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -806,14 +776,7 @@
                               <InArgument x:TypeArguments="x:Object">[row("Destino").ToString + row("RET 217").ToString]</InArgument>
                             </Assign.Value>
                           </Assign>
-                          <ui:MoveFile ContinueOnError="{x:Null}" Destination="{x:Null}" Path="{x:Null}" DestinationResource="[Destino_Temp]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="434,187" sap2010:WorkflowViewState.IdRef="MoveFile_11" PathResource="[Out_Temp]">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                          </ui:MoveFile>
+                          <ui:MoveFile ContinueOnError="{x:Null}" Destination="[row(&quot;Destino&quot;).ToString + row(&quot;RET 217&quot;).ToString]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="MoveFile_3" Overwrite="True" Path="[row(&quot;Ubicación&quot;).ToString + row(&quot;RET 217&quot;).ToString]" />
                           <ui:WriteCell Cell="[&quot;E&quot; + row(&quot;Fila&quot;).ToString]" DisplayName="Control OK" sap:VirtualizedContainerService.HintSize="434,116" sap2010:WorkflowViewState.IdRef="WriteCell_28" SheetName="Control" Text="Importado" WorkbookPath="Control.xlsx" />
                         </Sequence>
                       </If.Then>
@@ -829,7 +792,7 @@
                       </If.Else>
                     </If>
                     <ui:FileExistsX DisplayName="File Exists 217 PER" Exists="[PER217]" sap:VirtualizedContainerService.HintSize="510,133" sap2010:WorkflowViewState.IdRef="FileExistsX_14" Path="[row(&quot;Ubicación&quot;).ToString + row(&quot;PER 217&quot;).ToString]" />
-                    <If Condition="[PER217 = True]" DisplayName="If 217 PER" sap:VirtualizedContainerService.HintSize="510,2551" sap2010:WorkflowViewState.IdRef="If_16">
+                    <If Condition="[PER217 = True]" DisplayName="If 217 PER" sap:VirtualizedContainerService.HintSize="510,2075" sap2010:WorkflowViewState.IdRef="If_16">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -837,7 +800,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <If.Then>
-                        <Sequence sap:VirtualizedContainerService.HintSize="476,2165" sap2010:WorkflowViewState.IdRef="Sequence_43">
+                        <Sequence sap:VirtualizedContainerService.HintSize="476,1893" sap2010:WorkflowViewState.IdRef="Sequence_43">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -991,30 +954,7 @@
                               </ui:Target>
                             </ui:Click.Target>
                           </ui:Click>
-                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_27">
-                            <Assign.To>
-                              <OutArgument x:TypeArguments="x:Object">[Out_Temp]</OutArgument>
-                            </Assign.To>
-                            <Assign.Value>
-                              <InArgument x:TypeArguments="x:Object">[row("Ubicación").ToString + row("PER 217").ToString]</InArgument>
-                            </Assign.Value>
-                          </Assign>
-                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_28">
-                            <Assign.To>
-                              <OutArgument x:TypeArguments="x:Object">[Destino_Temp]</OutArgument>
-                            </Assign.To>
-                            <Assign.Value>
-                              <InArgument x:TypeArguments="x:Object">[row("Destino").ToString + row("PER 217").ToString]</InArgument>
-                            </Assign.Value>
-                          </Assign>
-                          <ui:MoveFile ContinueOnError="{x:Null}" Destination="{x:Null}" Path="{x:Null}" DestinationResource="[Destino_Temp]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="434,187" sap2010:WorkflowViewState.IdRef="MoveFile_14" PathResource="[Out_Temp]">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                          </ui:MoveFile>
+                          <ui:MoveFile ContinueOnError="{x:Null}" Destination="[row(&quot;Destino&quot;).ToString + row(&quot;PER 217&quot;).ToString]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="MoveFile_4" Overwrite="True" Path="[row(&quot;Ubicación&quot;).ToString + row(&quot;PER 217&quot;).ToString]" />
                           <ui:WriteCell Cell="[&quot;H&quot; + row(&quot;Fila&quot;).ToString]" DisplayName="Control OK" sap:VirtualizedContainerService.HintSize="434,116" sap2010:WorkflowViewState.IdRef="WriteCell_40" SheetName="Control" Text="Importado" WorkbookPath="Control.xlsx" />
                         </Sequence>
                       </If.Then>
@@ -1030,7 +970,7 @@
                       </If.Else>
                     </If>
                     <ui:FileExistsX DisplayName="File Exists 767 RET" Exists="[RET767]" sap:VirtualizedContainerService.HintSize="510,133" sap2010:WorkflowViewState.IdRef="FileExistsX_9" Path="[row(&quot;Ubicación&quot;).ToString + row(&quot;RET 767&quot;).ToString]" />
-                    <If Condition="[RET767 = True]" DisplayName="If 767 RET" sap:VirtualizedContainerService.HintSize="510,2347" sap2010:WorkflowViewState.IdRef="If_14">
+                    <If Condition="[RET767 = True]" DisplayName="If 767 RET" sap:VirtualizedContainerService.HintSize="510,2075" sap2010:WorkflowViewState.IdRef="If_14">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1038,7 +978,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <If.Then>
-                        <Sequence sap:VirtualizedContainerService.HintSize="476,2165" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                        <Sequence sap:VirtualizedContainerService.HintSize="476,1893" sap2010:WorkflowViewState.IdRef="Sequence_32">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1192,30 +1132,7 @@
                               </ui:Target>
                             </ui:Click.Target>
                           </ui:Click>
-                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_17">
-                            <Assign.To>
-                              <OutArgument x:TypeArguments="x:Object">[Out_Temp]</OutArgument>
-                            </Assign.To>
-                            <Assign.Value>
-                              <InArgument x:TypeArguments="x:Object">[row("Ubicación").ToString + row("RET 767").ToString]</InArgument>
-                            </Assign.Value>
-                          </Assign>
-                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_18">
-                            <Assign.To>
-                              <OutArgument x:TypeArguments="x:Object">[Destino_Temp]</OutArgument>
-                            </Assign.To>
-                            <Assign.Value>
-                              <InArgument x:TypeArguments="x:Object">[row("Destino").ToString + row("RET 767").ToString]</InArgument>
-                            </Assign.Value>
-                          </Assign>
-                          <ui:MoveFile ContinueOnError="{x:Null}" Destination="{x:Null}" Path="{x:Null}" DestinationResource="[Destino_Temp]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="434,187" sap2010:WorkflowViewState.IdRef="MoveFile_12" PathResource="[Out_Temp]">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                          </ui:MoveFile>
+                          <ui:MoveFile ContinueOnError="{x:Null}" Destination="[row(&quot;Destino&quot;).ToString + row(&quot;RET 767&quot;).ToString]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="MoveFile_5" Overwrite="True" Path="[row(&quot;Ubicación&quot;).ToString + row(&quot;RET 767&quot;).ToString]" />
                           <ui:WriteCell Cell="[&quot;F&quot; + row(&quot;Fila&quot;).ToString]" DisplayName="Control OK" sap:VirtualizedContainerService.HintSize="434,116" sap2010:WorkflowViewState.IdRef="WriteCell_30" SheetName="Control" Text="Importado" WorkbookPath="Control.xlsx" />
                         </Sequence>
                       </If.Then>
@@ -1238,7 +1155,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:FileExistsX>
-                    <If Condition="[PER767 = True]" DisplayName="If 767 PER" sap:VirtualizedContainerService.HintSize="510,52" sap2010:WorkflowViewState.IdRef="If_17">
+                    <If Condition="[PER767 = True]" DisplayName="If 767 PER" sap:VirtualizedContainerService.HintSize="510,2075" sap2010:WorkflowViewState.IdRef="If_17">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1246,7 +1163,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <If.Then>
-                        <Sequence sap:VirtualizedContainerService.HintSize="476,2165" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                        <Sequence sap:VirtualizedContainerService.HintSize="476,1893" sap2010:WorkflowViewState.IdRef="Sequence_45">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1400,30 +1317,7 @@
                               </ui:Target>
                             </ui:Click.Target>
                           </ui:Click>
-                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_29">
-                            <Assign.To>
-                              <OutArgument x:TypeArguments="x:Object">[Out_Temp]</OutArgument>
-                            </Assign.To>
-                            <Assign.Value>
-                              <InArgument x:TypeArguments="x:Object">[row("Ubicación").ToString + row("PER 767").ToString]</InArgument>
-                            </Assign.Value>
-                          </Assign>
-                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_30">
-                            <Assign.To>
-                              <OutArgument x:TypeArguments="x:Object">[Destino_Temp]</OutArgument>
-                            </Assign.To>
-                            <Assign.Value>
-                              <InArgument x:TypeArguments="x:Object">[row("Destino").ToString + row("PER 767").ToString]</InArgument>
-                            </Assign.Value>
-                          </Assign>
-                          <ui:MoveFile ContinueOnError="{x:Null}" Destination="{x:Null}" Path="{x:Null}" DestinationResource="[Destino_Temp]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="434,187" sap2010:WorkflowViewState.IdRef="MoveFile_15" PathResource="[Out_Temp]">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                          </ui:MoveFile>
+                          <ui:MoveFile ContinueOnError="{x:Null}" Destination="[row(&quot;Destino&quot;).ToString + row(&quot;PER 767&quot;).ToString]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="MoveFile_6" Overwrite="True" Path="[row(&quot;Ubicación&quot;).ToString + row(&quot;PER 767&quot;).ToString]" />
                           <ui:WriteCell Cell="[&quot;I&quot; + row(&quot;Fila&quot;).ToString]" DisplayName="Control OK" sap:VirtualizedContainerService.HintSize="434,116" sap2010:WorkflowViewState.IdRef="WriteCell_42" SheetName="Control" Text="Importado" WorkbookPath="Control.xlsx" />
                         </Sequence>
                       </If.Then>
@@ -1446,7 +1340,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:FileExistsX>
-                    <If Condition="[SUSS = True]" DisplayName="If SUSS" sap:VirtualizedContainerService.HintSize="510,2551" sap2010:WorkflowViewState.IdRef="If_18">
+                    <If Condition="[SUSS = True]" DisplayName="If SUSS" sap:VirtualizedContainerService.HintSize="510,2319" sap2010:WorkflowViewState.IdRef="If_18">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1454,7 +1348,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <If.Then>
-                        <Sequence sap:VirtualizedContainerService.HintSize="476,2165" sap2010:WorkflowViewState.IdRef="Sequence_47">
+                        <Sequence sap:VirtualizedContainerService.HintSize="476,2137" sap2010:WorkflowViewState.IdRef="Sequence_47">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1624,14 +1518,7 @@
                               <InArgument x:TypeArguments="x:Object">[row("Destino").ToString + row("SUSS").ToString]</InArgument>
                             </Assign.Value>
                           </Assign>
-                          <ui:MoveFile ContinueOnError="{x:Null}" Destination="{x:Null}" Path="{x:Null}" DestinationResource="[Destino_Temp]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="434,187" sap2010:WorkflowViewState.IdRef="MoveFile_16" PathResource="[Out_Temp]">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                          </ui:MoveFile>
+                          <ui:MoveFile ContinueOnError="{x:Null}" Destination="[row(&quot;Destino&quot;).ToString + row(&quot;SUSS&quot;).ToString]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="MoveFile_7" Overwrite="True" Path="[row(&quot;Ubicación&quot;).ToString + row(&quot;SUSS&quot;).ToString]" />
                           <ui:WriteCell Cell="[&quot;j&quot; + row(&quot;Fila&quot;).ToString]" DisplayName="Control OK" sap:VirtualizedContainerService.HintSize="434,116" sap2010:WorkflowViewState.IdRef="WriteCell_44" SheetName="Control" Text="Importado" WorkbookPath="Control.xlsx" />
                         </Sequence>
                       </If.Then>
@@ -1655,7 +1542,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <If.Then>
-                        <Sequence sap:VirtualizedContainerService.HintSize="476,2312" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                        <Sequence sap:VirtualizedContainerService.HintSize="476,2284" sap2010:WorkflowViewState.IdRef="Sequence_34">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1847,14 +1734,7 @@
                               <InArgument x:TypeArguments="x:Object">[row("Destino").ToString + row("SIRCREB").ToString]</InArgument>
                             </Assign.Value>
                           </Assign>
-                          <ui:MoveFile ContinueOnError="{x:Null}" Destination="{x:Null}" Path="{x:Null}" DestinationResource="[Destino_Temp]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="434,187" sap2010:WorkflowViewState.IdRef="MoveFile_7" PathResource="[Out_Temp]">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                          </ui:MoveFile>
+                          <ui:MoveFile ContinueOnError="{x:Null}" Destination="[row(&quot;Destino&quot;).ToString + row(&quot;SIRCREB&quot;).ToString]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="MoveFile_8" Overwrite="True" Path="[row(&quot;Ubicación&quot;).ToString + row(&quot;SIRCREB&quot;).ToString]" />
                           <ui:WriteCell Cell="[&quot;K&quot; + row(&quot;Fila&quot;).ToString]" DisplayName="Control OK" sap:VirtualizedContainerService.HintSize="434,116" sap2010:WorkflowViewState.IdRef="WriteCell_32" SheetName="Control" Text="Importado" WorkbookPath="Control.xlsx" />
                         </Sequence>
                       </If.Then>
@@ -1870,7 +1750,7 @@
                       </If.Else>
                     </If>
                     <ui:FileExistsX DisplayName="File Exists SIFERE" Exists="[SIFERE]" sap:VirtualizedContainerService.HintSize="510,133" sap2010:WorkflowViewState.IdRef="FileExistsX_11" Path="[row(&quot;Ubicación&quot;).ToString + row(&quot;SIFERE&quot;).ToString]" />
-                    <If Condition="[SIFERE = True]" DisplayName="If SIFERE" sap:VirtualizedContainerService.HintSize="510,2347" sap2010:WorkflowViewState.IdRef="If_9">
+                    <If Condition="[SIFERE = True]" DisplayName="If SIFERE" sap:VirtualizedContainerService.HintSize="510,2075" sap2010:WorkflowViewState.IdRef="If_9">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1878,7 +1758,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <If.Then>
-                        <Sequence sap:VirtualizedContainerService.HintSize="476,2165" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                        <Sequence sap:VirtualizedContainerService.HintSize="476,1893" sap2010:WorkflowViewState.IdRef="Sequence_36">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2032,30 +1912,7 @@
                               </ui:Target>
                             </ui:Click.Target>
                           </ui:Click>
-                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_21">
-                            <Assign.To>
-                              <OutArgument x:TypeArguments="x:Object">[Out_Temp]</OutArgument>
-                            </Assign.To>
-                            <Assign.Value>
-                              <InArgument x:TypeArguments="x:Object">[row("Ubicación").ToString + row("SIFERE").ToString]</InArgument>
-                            </Assign.Value>
-                          </Assign>
-                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_22">
-                            <Assign.To>
-                              <OutArgument x:TypeArguments="x:Object">[Destino_Temp]</OutArgument>
-                            </Assign.To>
-                            <Assign.Value>
-                              <InArgument x:TypeArguments="x:Object">[row("Destino").ToString + row("SIFERE").ToString]</InArgument>
-                            </Assign.Value>
-                          </Assign>
-                          <ui:MoveFile ContinueOnError="{x:Null}" Destination="{x:Null}" Path="{x:Null}" DestinationResource="[Destino_Temp]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="434,187" sap2010:WorkflowViewState.IdRef="MoveFile_9" PathResource="[Out_Temp]">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                          </ui:MoveFile>
+                          <ui:MoveFile ContinueOnError="{x:Null}" Destination="[row(&quot;Destino&quot;).ToString + row(&quot;SIFERE&quot;).ToString]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="MoveFile_9" Overwrite="True" Path="[row(&quot;Ubicación&quot;).ToString + row(&quot;SIFERE&quot;).ToString]" />
                           <ui:WriteCell Cell="[&quot;L&quot; + row(&quot;Fila&quot;).ToString]" DisplayName="Control OK" sap:VirtualizedContainerService.HintSize="434,116" sap2010:WorkflowViewState.IdRef="WriteCell_34" SheetName="Control" Text="Importado" WorkbookPath="Control.xlsx" />
                         </Sequence>
                       </If.Then>
@@ -2071,7 +1928,7 @@
                       </If.Else>
                     </If>
                     <ui:FileExistsX DisplayName="File Exists ARBA RET" Exists="[ARBARET]" sap:VirtualizedContainerService.HintSize="510,133" sap2010:WorkflowViewState.IdRef="FileExistsX_18" Path="[row(&quot;Ubicación&quot;).ToString + row(&quot;ARBA RET&quot;).ToString]" />
-                    <If Condition="[ARBARET = True]" DisplayName="If ARBA RET" sap:VirtualizedContainerService.HintSize="510,2551" sap2010:WorkflowViewState.IdRef="If_20">
+                    <If Condition="[ARBARET = True]" DisplayName="If ARBA RET" sap:VirtualizedContainerService.HintSize="510,2075" sap2010:WorkflowViewState.IdRef="If_20">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2079,7 +1936,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <If.Then>
-                        <Sequence sap:VirtualizedContainerService.HintSize="476,2165" sap2010:WorkflowViewState.IdRef="Sequence_51">
+                        <Sequence sap:VirtualizedContainerService.HintSize="476,1893" sap2010:WorkflowViewState.IdRef="Sequence_51">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2233,30 +2090,7 @@
                               </ui:Target>
                             </ui:Click.Target>
                           </ui:Click>
-                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_35">
-                            <Assign.To>
-                              <OutArgument x:TypeArguments="x:Object">[Out_Temp]</OutArgument>
-                            </Assign.To>
-                            <Assign.Value>
-                              <InArgument x:TypeArguments="x:Object">[row("Ubicación").ToString + row("ARBA RET").ToString]</InArgument>
-                            </Assign.Value>
-                          </Assign>
-                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_36">
-                            <Assign.To>
-                              <OutArgument x:TypeArguments="x:Object">[Destino_Temp]</OutArgument>
-                            </Assign.To>
-                            <Assign.Value>
-                              <InArgument x:TypeArguments="x:Object">[row("Destino").ToString + row("ARBA RET").ToString]</InArgument>
-                            </Assign.Value>
-                          </Assign>
-                          <ui:MoveFile ContinueOnError="{x:Null}" Destination="{x:Null}" Path="{x:Null}" DestinationResource="[Destino_Temp]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="434,187" sap2010:WorkflowViewState.IdRef="MoveFile_18" PathResource="[Out_Temp]">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                          </ui:MoveFile>
+                          <ui:MoveFile ContinueOnError="{x:Null}" Destination="[row(&quot;Destino&quot;).ToString + row(&quot;ARBA RET&quot;).ToString]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="MoveFile_10" Overwrite="True" Path="[row(&quot;Ubicación&quot;).ToString + row(&quot;ARBA RET&quot;).ToString]" />
                           <ui:WriteCell Cell="[&quot;M&quot; + row(&quot;Fila&quot;).ToString]" DisplayName="Control OK" sap:VirtualizedContainerService.HintSize="434,116" sap2010:WorkflowViewState.IdRef="WriteCell_48" SheetName="Control" Text="Importado" WorkbookPath="Control.xlsx" />
                         </Sequence>
                       </If.Then>
@@ -2279,7 +2113,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:FileExistsX>
-                    <If Condition="[ARBAPER = True]" DisplayName="If ARBA RET" sap:VirtualizedContainerService.HintSize="510,2551" sap2010:WorkflowViewState.IdRef="If_24">
+                    <If Condition="[ARBAPER = True]" DisplayName="If ARBA RET" sap:VirtualizedContainerService.HintSize="510,2075" sap2010:WorkflowViewState.IdRef="If_24">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2287,7 +2121,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <If.Then>
-                        <Sequence sap:VirtualizedContainerService.HintSize="476,2165" sap2010:WorkflowViewState.IdRef="Sequence_59">
+                        <Sequence sap:VirtualizedContainerService.HintSize="476,1893" sap2010:WorkflowViewState.IdRef="Sequence_59">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2441,30 +2275,7 @@
                               </ui:Target>
                             </ui:Click.Target>
                           </ui:Click>
-                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_43">
-                            <Assign.To>
-                              <OutArgument x:TypeArguments="x:Object">[Out_Temp]</OutArgument>
-                            </Assign.To>
-                            <Assign.Value>
-                              <InArgument x:TypeArguments="x:Object">[row("Ubicación").ToString + row("ARBA PER").ToString]</InArgument>
-                            </Assign.Value>
-                          </Assign>
-                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_44">
-                            <Assign.To>
-                              <OutArgument x:TypeArguments="x:Object">[Destino_Temp]</OutArgument>
-                            </Assign.To>
-                            <Assign.Value>
-                              <InArgument x:TypeArguments="x:Object">[row("Destino").ToString + row("ARBA PER").ToString]</InArgument>
-                            </Assign.Value>
-                          </Assign>
-                          <ui:MoveFile ContinueOnError="{x:Null}" Destination="{x:Null}" Path="{x:Null}" DestinationResource="[Destino_Temp]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="434,187" sap2010:WorkflowViewState.IdRef="MoveFile_22" PathResource="[Out_Temp]">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                          </ui:MoveFile>
+                          <ui:MoveFile ContinueOnError="{x:Null}" Destination="[row(&quot;Destino&quot;).ToString + row(&quot;ARBA PER&quot;).ToString]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="MoveFile_11" Overwrite="True" Path="[row(&quot;Ubicación&quot;).ToString + row(&quot;ARBA PER&quot;).ToString]" />
                           <ui:WriteCell Cell="[&quot;N&quot; + row(&quot;Fila&quot;).ToString]" DisplayName="Control OK" sap:VirtualizedContainerService.HintSize="434,116" sap2010:WorkflowViewState.IdRef="WriteCell_56" SheetName="Control" Text="Importado" WorkbookPath="Control.xlsx" />
                         </Sequence>
                       </If.Then>
@@ -2487,7 +2298,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:FileExistsX>
-                    <If Condition="[ARBACT = True]" DisplayName="if ARBA CT" sap:VirtualizedContainerService.HintSize="510,2698" sap2010:WorkflowViewState.IdRef="If_28">
+                    <If Condition="[ARBACT = True]" DisplayName="if ARBA CT" sap:VirtualizedContainerService.HintSize="510,2222" sap2010:WorkflowViewState.IdRef="If_28">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2495,7 +2306,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <If.Then>
-                        <Sequence sap:VirtualizedContainerService.HintSize="476,2312" sap2010:WorkflowViewState.IdRef="Sequence_67">
+                        <Sequence sap:VirtualizedContainerService.HintSize="476,2040" sap2010:WorkflowViewState.IdRef="Sequence_67">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2671,30 +2482,7 @@
                               </ui:Target>
                             </ui:Click.Target>
                           </ui:Click>
-                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_51">
-                            <Assign.To>
-                              <OutArgument x:TypeArguments="x:Object">[Out_Temp]</OutArgument>
-                            </Assign.To>
-                            <Assign.Value>
-                              <InArgument x:TypeArguments="x:Object">[row("Ubicación").ToString + row("ARBA CT").ToString]</InArgument>
-                            </Assign.Value>
-                          </Assign>
-                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_52">
-                            <Assign.To>
-                              <OutArgument x:TypeArguments="x:Object">[Destino_Temp]</OutArgument>
-                            </Assign.To>
-                            <Assign.Value>
-                              <InArgument x:TypeArguments="x:Object">[row("Destino").ToString + row("ARBA CT").ToString]</InArgument>
-                            </Assign.Value>
-                          </Assign>
-                          <ui:MoveFile ContinueOnError="{x:Null}" Destination="{x:Null}" Path="{x:Null}" DestinationResource="[Destino_Temp]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="434,187" sap2010:WorkflowViewState.IdRef="MoveFile_26" PathResource="[Out_Temp]">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                          </ui:MoveFile>
+                          <ui:MoveFile ContinueOnError="{x:Null}" Destination="[row(&quot;Destino&quot;).ToString + row(&quot;ARBA CT&quot;).ToString]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="MoveFile_12" Overwrite="True" Path="[row(&quot;Ubicación&quot;).ToString + row(&quot;ARBA CT&quot;).ToString]" />
                           <ui:WriteCell Cell="[&quot;O&quot; + row(&quot;Fila&quot;).ToString]" DisplayName="Control OK" sap:VirtualizedContainerService.HintSize="434,116" sap2010:WorkflowViewState.IdRef="WriteCell_64" SheetName="Control" Text="Importado" WorkbookPath="Control.xlsx" />
                         </Sequence>
                       </If.Then>
@@ -2717,7 +2505,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:FileExistsX>
-                    <If Condition="[ARBACB = True]" DisplayName="If ARBA CB" sap:VirtualizedContainerService.HintSize="510,2551" sap2010:WorkflowViewState.IdRef="If_26">
+                    <If Condition="[ARBACB = True]" DisplayName="If ARBA CB" sap:VirtualizedContainerService.HintSize="510,2075" sap2010:WorkflowViewState.IdRef="If_26">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2725,7 +2513,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <If.Then>
-                        <Sequence sap:VirtualizedContainerService.HintSize="476,2165" sap2010:WorkflowViewState.IdRef="Sequence_65">
+                        <Sequence sap:VirtualizedContainerService.HintSize="476,1893" sap2010:WorkflowViewState.IdRef="Sequence_65">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2879,30 +2667,7 @@
                               </ui:Target>
                             </ui:Click.Target>
                           </ui:Click>
-                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_49">
-                            <Assign.To>
-                              <OutArgument x:TypeArguments="x:Object">[Out_Temp]</OutArgument>
-                            </Assign.To>
-                            <Assign.Value>
-                              <InArgument x:TypeArguments="x:Object">[row("Ubicación").ToString + row("ARBA CB").ToString]</InArgument>
-                            </Assign.Value>
-                          </Assign>
-                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_50">
-                            <Assign.To>
-                              <OutArgument x:TypeArguments="x:Object">[Destino_Temp]</OutArgument>
-                            </Assign.To>
-                            <Assign.Value>
-                              <InArgument x:TypeArguments="x:Object">[row("Destino").ToString + row("ARBA CB").ToString]</InArgument>
-                            </Assign.Value>
-                          </Assign>
-                          <ui:MoveFile ContinueOnError="{x:Null}" Destination="{x:Null}" Path="{x:Null}" DestinationResource="[Destino_Temp]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="434,187" sap2010:WorkflowViewState.IdRef="MoveFile_25" PathResource="[Out_Temp]">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                          </ui:MoveFile>
+                          <ui:MoveFile ContinueOnError="{x:Null}" Destination="[row(&quot;Destino&quot;).ToString + row(&quot;ARBA CB&quot;).ToString]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="MoveFile_13" Overwrite="True" Path="[row(&quot;Ubicación&quot;).ToString + row(&quot;ARBA CB&quot;).ToString]" />
                           <ui:WriteCell Cell="[&quot;P&quot; + row(&quot;Fila&quot;).ToString]" DisplayName="Control OK" sap:VirtualizedContainerService.HintSize="434,116" sap2010:WorkflowViewState.IdRef="WriteCell_62" SheetName="Control" Text="Importado" WorkbookPath="Control.xlsx" />
                         </Sequence>
                       </If.Then>
@@ -2918,7 +2683,7 @@
                       </If.Else>
                     </If>
                     <ui:FileExistsX DisplayName="File Exists AGIP RET" Exists="[AGIP]" sap:VirtualizedContainerService.HintSize="510,133" sap2010:WorkflowViewState.IdRef="FileExistsX_12" Path="[row(&quot;Ubicación&quot;).ToString + row(&quot;CABA - AGIP RET&quot;).ToString]" />
-                    <If Condition="[AGIP = True]" DisplayName="If AGIP RET" sap:VirtualizedContainerService.HintSize="510,2551" sap2010:WorkflowViewState.IdRef="If_10">
+                    <If Condition="[AGIP = True]" DisplayName="If AGIP RET" sap:VirtualizedContainerService.HintSize="510,2075" sap2010:WorkflowViewState.IdRef="If_10">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -2926,7 +2691,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <If.Then>
-                        <Sequence sap:VirtualizedContainerService.HintSize="476,2165" sap2010:WorkflowViewState.IdRef="Sequence_39">
+                        <Sequence sap:VirtualizedContainerService.HintSize="476,1893" sap2010:WorkflowViewState.IdRef="Sequence_39">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -3080,30 +2845,7 @@
                               </ui:Target>
                             </ui:Click.Target>
                           </ui:Click>
-                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_23">
-                            <Assign.To>
-                              <OutArgument x:TypeArguments="x:Object">[Out_Temp]</OutArgument>
-                            </Assign.To>
-                            <Assign.Value>
-                              <InArgument x:TypeArguments="x:Object">[row("Ubicación").ToString + row("CABA - AGIP RET").ToString]</InArgument>
-                            </Assign.Value>
-                          </Assign>
-                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_24">
-                            <Assign.To>
-                              <OutArgument x:TypeArguments="x:Object">[Destino_Temp]</OutArgument>
-                            </Assign.To>
-                            <Assign.Value>
-                              <InArgument x:TypeArguments="x:Object">[row("Destino").ToString + row("CABA - AGIP RET").ToString]</InArgument>
-                            </Assign.Value>
-                          </Assign>
-                          <ui:MoveFile ContinueOnError="{x:Null}" Destination="{x:Null}" Path="{x:Null}" DestinationResource="[Destino_Temp]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="434,187" sap2010:WorkflowViewState.IdRef="MoveFile_8" PathResource="[Out_Temp]">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                          </ui:MoveFile>
+                          <ui:MoveFile ContinueOnError="{x:Null}" Destination="[row(&quot;Destino&quot;).ToString + row(&quot;CABA - AGIP RET&quot;).ToString]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="MoveFile_14" Overwrite="True" Path="[row(&quot;Ubicación&quot;).ToString + row(&quot;CABA - AGIP RET&quot;).ToString]" />
                           <ui:WriteCell Cell="[&quot;Q&quot; + row(&quot;Fila&quot;).ToString]" DisplayName="Control OK" sap:VirtualizedContainerService.HintSize="434,116" sap2010:WorkflowViewState.IdRef="WriteCell_36" SheetName="Control" Text="Importado" WorkbookPath="Control.xlsx" />
                         </Sequence>
                       </If.Then>
@@ -3119,7 +2861,7 @@
                       </If.Else>
                     </If>
                     <ui:FileExistsX DisplayName="File Exists AGIP PER" Exists="[AGIPPER]" sap:VirtualizedContainerService.HintSize="510,133" sap2010:WorkflowViewState.IdRef="FileExistsX_17" Path="[row(&quot;Ubicación&quot;).ToString + row(&quot;CABA - AGIP PER&quot;).ToString]" />
-                    <If Condition="[AGIPPER = True]" DisplayName="If AGIP PER" sap:VirtualizedContainerService.HintSize="510,2551" sap2010:WorkflowViewState.IdRef="If_19">
+                    <If Condition="[AGIPPER = True]" DisplayName="If AGIP PER" sap:VirtualizedContainerService.HintSize="510,2075" sap2010:WorkflowViewState.IdRef="If_19">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -3127,14 +2869,14 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <If.Then>
-                        <Sequence sap:VirtualizedContainerService.HintSize="476,2165" sap2010:WorkflowViewState.IdRef="Sequence_49">
+                        <Sequence sap:VirtualizedContainerService.HintSize="426,1893" sap2010:WorkflowViewState.IdRef="Sequence_49">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:NavigateTo Browser="{x:Null}" DisplayName="Mis Retenciones" sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="NavigateTo_17" Url="https://nuevo.soft.sos-contador.com/web/importacion_arbaretenciones.asp?fuente=AGIP" />
-                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Año completo" sap:VirtualizedContainerService.HintSize="434,107" sap2010:WorkflowViewState.IdRef="Click_88" KeyModifiers="None" MouseButton="BTN_LEFT">
+                          <ui:NavigateTo Browser="{x:Null}" DisplayName="Mis Retenciones" sap:VirtualizedContainerService.HintSize="384,60" sap2010:WorkflowViewState.IdRef="NavigateTo_17" Url="https://nuevo.soft.sos-contador.com/web/importacion_arbaretenciones.asp?fuente=AGIP" />
+                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Año completo" sap:VirtualizedContainerService.HintSize="384,107" sap2010:WorkflowViewState.IdRef="Click_88" KeyModifiers="None" MouseButton="BTN_LEFT">
                             <ui:Click.CursorPosition>
                               <ui:CursorPosition Position="Center">
                                 <ui:CursorPosition.OffsetX>
@@ -3156,7 +2898,7 @@
                               </ui:Target>
                             </ui:Click.Target>
                           </ui:Click>
-                          <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Año" sap:VirtualizedContainerService.HintSize="434,135" sap2010:WorkflowViewState.IdRef="TypeInto_50" Text="[string.Format(&quot;{0:yyyy}&quot; , row(&quot;Desde&quot;))]">
+                          <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Año" sap:VirtualizedContainerService.HintSize="384,135" sap2010:WorkflowViewState.IdRef="TypeInto_50" Text="[string.Format(&quot;{0:yyyy}&quot; , row(&quot;Desde&quot;))]">
                             <ui:TypeInto.Target>
                               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="abcd94f9-208b-40ea-afc3-87dba7a212ba" InformativeScreenshot="5cec79c13bb01cdc07539b96b0bfe35f" Selector="&lt;webctrl id='anio' tag='INPUT' type='text' /&gt;">
                                 <ui:Target.TimeoutMS>
@@ -3168,7 +2910,7 @@
                               </ui:Target>
                             </ui:TypeInto.Target>
                           </ui:TypeInto>
-                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Subir TXT" sap:VirtualizedContainerService.HintSize="434,107" sap2010:WorkflowViewState.IdRef="Click_89" KeyModifiers="None" MouseButton="BTN_LEFT">
+                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Subir TXT" sap:VirtualizedContainerService.HintSize="384,107" sap2010:WorkflowViewState.IdRef="Click_89" KeyModifiers="None" MouseButton="BTN_LEFT">
                             <ui:Click.CursorPosition>
                               <ui:CursorPosition Position="Center">
                                 <ui:CursorPosition.OffsetX>
@@ -3190,7 +2932,7 @@
                               </ui:Target>
                             </ui:Click.Target>
                           </ui:Click>
-                          <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Cargar nombre de archivo" sap:VirtualizedContainerService.HintSize="434,135" sap2010:WorkflowViewState.IdRef="TypeInto_51" Text="[row(&quot;Ubicación&quot;).ToString + row(&quot;CABA - AGIP PER&quot;).ToString]">
+                          <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Cargar nombre de archivo" sap:VirtualizedContainerService.HintSize="384,135" sap2010:WorkflowViewState.IdRef="TypeInto_51" Text="[row(&quot;Ubicación&quot;).ToString + row(&quot;CABA - AGIP PER&quot;).ToString]">
                             <ui:TypeInto.Target>
                               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ab746740-3386-4526-9e1d-ffa549a8f2c2" InformativeScreenshot="35ea084369c4590c9e826133b1509745" Selector="&lt;wnd app='firefox.exe' cls='#32770' title='Subir archivo' /&gt;&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;">
                                 <ui:Target.TimeoutMS>
@@ -3202,7 +2944,7 @@
                               </ui:Target>
                             </ui:TypeInto.Target>
                           </ui:TypeInto>
-                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Abrir" sap:VirtualizedContainerService.HintSize="434,107" sap2010:WorkflowViewState.IdRef="Click_90" KeyModifiers="None" MouseButton="BTN_LEFT">
+                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Abrir" sap:VirtualizedContainerService.HintSize="384,107" sap2010:WorkflowViewState.IdRef="Click_90" KeyModifiers="None" MouseButton="BTN_LEFT">
                             <ui:Click.CursorPosition>
                               <ui:CursorPosition Position="Center">
                                 <ui:CursorPosition.OffsetX>
@@ -3224,8 +2966,8 @@
                               </ui:Target>
                             </ui:Click.Target>
                           </ui:Click>
-                          <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="434,90" sap2010:WorkflowViewState.IdRef="Delay_17" />
-                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Importar" sap:VirtualizedContainerService.HintSize="434,107" sap2010:WorkflowViewState.IdRef="Click_91" KeyModifiers="None" MouseButton="BTN_LEFT">
+                          <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="384,90" sap2010:WorkflowViewState.IdRef="Delay_17" />
+                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Importar" sap:VirtualizedContainerService.HintSize="384,107" sap2010:WorkflowViewState.IdRef="Click_91" KeyModifiers="None" MouseButton="BTN_LEFT">
                             <ui:Click.CursorPosition>
                               <ui:CursorPosition Position="Center">
                                 <ui:CursorPosition.OffsetX>
@@ -3247,7 +2989,7 @@
                               </ui:Target>
                             </ui:Click.Target>
                           </ui:Click>
-                          <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Nombre de Informe" sap:VirtualizedContainerService.HintSize="434,135" sap2010:WorkflowViewState.IdRef="TypeInto_52" SimulateType="True" Text="[row(&quot;Destino&quot;).ToString+ &quot;Informe - &quot; + row(&quot;CABA - AGIP PER&quot;).ToString]">
+                          <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Nombre de Informe" sap:VirtualizedContainerService.HintSize="384,135" sap2010:WorkflowViewState.IdRef="TypeInto_52" SimulateType="True" Text="[row(&quot;Destino&quot;).ToString+ &quot;Informe - &quot; + row(&quot;CABA - AGIP PER&quot;).ToString]">
                             <ui:TypeInto.Target>
                               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c1100556-b23b-488e-abe1-ba9cc72378f1" InformativeScreenshot="2daabfbe1e5ec5b0d3cb63fc8bf84d44" Selector="&lt;wnd app='firefox.exe' cls='#32770' title='Ingrese nombre de archivo a guardar…' /&gt;&lt;wnd aaname='Panel del explorador' cls='DirectUIHWND' /&gt;&lt;wnd ctrlid='1001' /&gt;">
                                 <ui:Target.TimeoutMS>
@@ -3259,7 +3001,7 @@
                               </ui:Target>
                             </ui:TypeInto.Target>
                           </ui:TypeInto>
-                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click guardar" sap:VirtualizedContainerService.HintSize="434,107" sap2010:WorkflowViewState.IdRef="Click_92" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click guardar" sap:VirtualizedContainerService.HintSize="384,107" sap2010:WorkflowViewState.IdRef="Click_92" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                             <ui:Click.CursorPosition>
                               <ui:CursorPosition Position="Center">
                                 <ui:CursorPosition.OffsetX>
@@ -3281,31 +3023,8 @@
                               </ui:Target>
                             </ui:Click.Target>
                           </ui:Click>
-                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_33">
-                            <Assign.To>
-                              <OutArgument x:TypeArguments="x:Object">[Out_Temp]</OutArgument>
-                            </Assign.To>
-                            <Assign.Value>
-                              <InArgument x:TypeArguments="x:Object">[row("Ubicación").ToString + row("CABA - AGIP PER").ToString]</InArgument>
-                            </Assign.Value>
-                          </Assign>
-                          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_34">
-                            <Assign.To>
-                              <OutArgument x:TypeArguments="x:Object">[Destino_Temp]</OutArgument>
-                            </Assign.To>
-                            <Assign.Value>
-                              <InArgument x:TypeArguments="x:Object">[row("Destino").ToString + row("CABA - AGIP PER").ToString]</InArgument>
-                            </Assign.Value>
-                          </Assign>
-                          <ui:MoveFile ContinueOnError="{x:Null}" Destination="{x:Null}" Path="{x:Null}" DestinationResource="[Destino_Temp]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="434,187" sap2010:WorkflowViewState.IdRef="MoveFile_17" PathResource="[Out_Temp]">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                          </ui:MoveFile>
-                          <ui:WriteCell Cell="[&quot;R&quot; + row(&quot;Fila&quot;).ToString]" DisplayName="Control OK" sap:VirtualizedContainerService.HintSize="434,116" sap2010:WorkflowViewState.IdRef="WriteCell_46" SheetName="Control" Text="Importado" WorkbookPath="Control.xlsx" />
+                          <ui:MoveFile ContinueOnError="{x:Null}" Destination="[row(&quot;Destino&quot;).ToString + row(&quot;CABA - AGIP PER&quot;).ToString]" DisplayName="Move File" sap:VirtualizedContainerService.HintSize="384,159" sap2010:WorkflowViewState.IdRef="MoveFile_15" Overwrite="True" Path="[row(&quot;Ubicación&quot;).ToString + row(&quot;CABA - AGIP PER&quot;).ToString]" />
+                          <ui:WriteCell Cell="[&quot;R&quot; + row(&quot;Fila&quot;).ToString]" DisplayName="Control OK" sap:VirtualizedContainerService.HintSize="384,116" sap2010:WorkflowViewState.IdRef="WriteCell_46" SheetName="Control" Text="Importado" WorkbookPath="Control.xlsx" />
                         </Sequence>
                       </If.Then>
                       <If.Else>
