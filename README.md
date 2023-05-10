@@ -37,7 +37,7 @@ Cualquier cosa pueden contactarme en:
 
 <br/>
 
-## 💰 Acepto donaciones para mantener los proyectos
+## 💰 Acepto donaciones para mantener los proyectos Libres y Gratuitos
 <br/>
 
 [![PayPal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/agustinbustosp) <!-- [<img src="http://ketekipo.com.ar/wp-content/uploads/2020/05/mercado-pago.png" alt="Image" height="30" width="100\">](https://paypal.me/paypal.me/agustinbustosp) -->
