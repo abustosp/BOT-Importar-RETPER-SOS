@@ -3,6 +3,12 @@
 Bot para la importación masiva de Retenciones y Percepciones a SOS-Contador mediante un BOT de UiPath
 
 ---
+
+El licenciamiento es bajo PL (es decir que no se puede distribuir comercialmente, solamente GRATIS). y si se utiliza este el código, su derivado también debe ser distribuido abierta y gratuitamente.
+
+
+---
+
 ## Ejecución del BOT
 
 Los pasos para ejecutar el bot son los siguientes:
@@ -47,7 +53,7 @@ Los pasos para ejecutar el bot son los siguientes:
 
 - La utilización del bot corre bajo la responsabilidad del que lo ejecuta.
 
-- Si se comparte debe ser de manera GRATUITA, ya que la licencia es bajo GPL 3. También los bots derivados deben seguir la misma licencia gratuita.
+- Si se comparte debe ser de manera GRATUITA, ya que la licencia es bajo PL. También los bots derivados deben seguir la misma licencia gratuita.
 
 ---
 
